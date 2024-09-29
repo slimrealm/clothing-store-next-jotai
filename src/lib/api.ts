@@ -1,5 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
+import bcrypt from 'bcrypt'
 import { Product, User, Order } from '@/types';
 
 const usersFilePath = path.join(process.cwd(), 'public', 'data', 'users.json')
@@ -23,8 +24,11 @@ export async function createUser(email: string, password: string): Promise<User>
     if (users.some(user => user.email === email)) {
         throw new Error('User already exists')
     }
-    // TODO: generate uuid for new user id, hash password with bcrypt
-    const newUser: User = { id: String(Date.now()), email, password }
+
+    const saltRounds = 10; // Adjust the salt rounds for security vs performance
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    // TODO: generate uuid for new user id
+    const newUser: User = { id: String(Date.now()), email, password: hashedPassword }
     users.push(newUser)
     await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2))
 
@@ -33,11 +37,15 @@ export async function createUser(email: string, password: string): Promise<User>
 
 export async function signInUser(email: string, password: string): Promise<User> {
     const users = await getUsers()
-    const user = users.find(u => u.email === email && u.password === password)
+    const user = users.find(u => u.email === email)
 
-    if (!user) {
-        throw new Error('Invalid credentials')
+    let doesPasswordMatch = false;
+    if (user && user?.password) {
+        doesPasswordMatch = await bcrypt.compare(password, user.password);
+        if (doesPasswordMatch) {
+            return user;
+        }
     }
 
-    return user
+    throw new Error('Invalid credentials')
 }

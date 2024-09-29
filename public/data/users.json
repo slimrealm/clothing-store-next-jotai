@@ -1,17 +1,22 @@
 [
-    {
-        "id": "1",
-        "email": "user1@example.com",
-        "password": "password123"
-    },
-    {
-        "id": "2",
-        "email": "user2@example.com",
-        "password": "password456"
-    },
-    {
-        "id": "3",
-        "email": "user3@example.com",
-        "password": "password789"
-    }
+  {
+    "id": "1",
+    "email": "user1@example.com",
+    "password": "password123"
+  },
+  {
+    "id": "2",
+    "email": "user2@example.com",
+    "password": "password456"
+  },
+  {
+    "id": "3",
+    "email": "user3@example.com",
+    "password": "password789"
+  },
+  {
+    "id": "1727650288383",
+    "email": "sammiller85@protonmail.com",
+    "password": "$2b$10$N5ZuJcPxXQj6HDuYJcXaXuigCS9f/3xJmhAhEVKGyEv8F4RvIclFO"
+  }
 ]
