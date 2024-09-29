@@ -1,0 +1,37 @@
+"use client"
+
+import Link from 'next/link'
+import { useAtom } from 'jotai'
+import { currentUserAtom, cartAtom } from '@/lib/atoms'
+
+const Navbar = () => {
+    const [currentUser] = useAtom(currentUserAtom)
+    const [cart] = useAtom(cartAtom)
+
+    return (
+        <nav className="bg-gray-800 text-white p-4">
+            <div className="container mx-auto flex justify-between items-center">
+                <Link href="/" className="text-xl font-bold">
+                    Clothing Store
+                </Link>
+                <div className="space-x-4">
+                    <Link href="/" className="hover:text-gray-300">
+                        Shop
+                    </Link>
+                    <Link href="/cart" className="hover:text-gray-300">
+                        Cart ({cart.length})
+                    </Link>
+                    {currentUser ? (
+                        <span>{currentUser.email}</span>
+                    ) : (
+                        <Link href="/signin" className="hover:text-gray-300">
+                            Sign In
+                        </Link>
+                    )}
+                </div>
+            </div>
+        </nav>
+    )
+}
+
+export default Navbar

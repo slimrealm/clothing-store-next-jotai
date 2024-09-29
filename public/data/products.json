@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "name": "Baseball Cap",
+        "description": "A stylish baseball cap for sunny days.",
+        "price": 19.99,
+        "image": "/images/baseball-cap.jpg",
+        "category": "hats",
+        "stockQuantity": 50
+    },
+    {
+        "id": "2",
+        "name": "Leather Jacket",
+        "description": "A classic leather jacket for a timeless look.",
+        "price": 129.99,
+        "image": "/images/leather-jacket.jpg",
+        "category": "jackets",
+        "stockQuantity": 20
+    },
+    {
+        "id": "3",
+        "name": "Running Shoes",
+        "description": "Comfortable running shoes for your daily jog.",
+        "price": 89.99,
+        "image": "/images/running-shoes.jpg",
+        "category": "shoes",
+        "stockQuantity": 30
+    },
+    {
+        "id": "4",
+        "name": "Sun Hat",
+        "description": "A wide-brimmed sun hat to keep you cool.",
+        "price": 24.99,
+        "image": "/images/sun-hat.jpg",
+        "category": "hats",
+        "stockQuantity": 15
+    },
+    {
+        "id": "5",
+        "name": "Denim Jacket",
+        "description": "A trendy denim jacket for casual outings.",
+        "price": 79.99,
+        "image": "/images/denim-jacket.jpg",
+        "category": "jackets",
+        "stockQuantity": 25
+    }
+]
