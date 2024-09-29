@@ -5,8 +5,12 @@ import { useAtom } from 'jotai'
 import { currentUserAtom, cartAtom } from '@/lib/atoms'
 
 const Navbar = () => {
-    const [currentUser] = useAtom(currentUserAtom)
+    const [currentUser, setCurrentUser] = useAtom(currentUserAtom)
     const [cart] = useAtom(cartAtom)
+
+    const handleSignOut = () => {
+        setCurrentUser(null)
+    }
 
     return (
         <nav className="bg-gray-800 text-white p-4">
@@ -22,11 +26,21 @@ const Navbar = () => {
                         Cart ({cart.length})
                     </Link>
                     {currentUser ? (
-                        <span>{currentUser.email}</span>
+                        <>
+                            <span>{currentUser.email}</span>
+                            <button onClick={handleSignOut} className="hover:text-gray-300">
+                                Sign Out
+                            </button>
+                        </>
                     ) : (
-                        <Link href="/signin" className="hover:text-gray-300">
-                            Sign In
-                        </Link>
+                        <>
+                            <Link href="/signin" className="hover:text-gray-300">
+                                Sign In
+                            </Link>
+                            <Link href="/signup" className="hover:text-gray-300">
+                                Sign Up
+                            </Link>
+                        </>
                     )}
                 </div>
             </div>
