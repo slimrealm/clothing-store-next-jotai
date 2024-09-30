@@ -17,6 +17,7 @@ export interface User {
 export interface CartItem {
     productId: string;
     quantity: number;
+    product: Product;
 }
 
 export interface Order {

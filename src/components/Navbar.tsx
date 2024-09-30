@@ -23,7 +23,7 @@ const Navbar = () => {
                         Shop
                     </Link>
                     <Link href="/cart" className="hover:text-gray-300">
-                        Cart ({cart.length})
+                        Cart ({cart.reduce((total, item) => total + item.quantity, 0)})
                     </Link>
                     {currentUser ? (
                         <>
