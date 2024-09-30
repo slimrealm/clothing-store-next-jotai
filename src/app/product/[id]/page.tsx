@@ -4,9 +4,10 @@ import { useAtom } from 'jotai'
 import { productsAtom, cartAtom } from '@/lib/atoms'
 import { addToCart } from '@/app/actions/cart'
 import { useState } from 'react'
+import products from '../../../../public/data/products.json' // TODO: fix products state
 
 export default function ProductPage({ params }: { params: { id: string } }) {
-    const [products] = useAtom(productsAtom)
+    // const [products] = useAtom(productsAtom)  // TODO: fix - set atom on Home page with initial getProducts() call
     const [cart, setCart] = useAtom(cartAtom)
     const [quantity, setQuantity] = useState(1)
 
