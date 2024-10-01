@@ -8,13 +8,13 @@ const usersFilePath = path.join(process.cwd(), 'public', 'data', 'users.json')
 export async function getProducts(): Promise<Product[]> {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 100));
-    const res = await fetch(`${process.env.NEXT_DEV_PUBLIC_BASE_URL}/data/products.json`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_PUBLIC_BASE_URL}/data/products.json`);
     return res.json();
 }
 
 export async function getUsers(): Promise<User[]> {
     await new Promise(resolve => setTimeout(resolve, 100));
-    const res = await fetch(`${process.env.NEXT_DEV_PUBLIC_BASE_URL}/data/users.json`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_DEV_PUBLIC_BASE_URL}/data/users.json`);
     return res.json();
 }
 
